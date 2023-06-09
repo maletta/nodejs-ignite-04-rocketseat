@@ -1,7 +1,7 @@
 ## 💻 Projeto
 
-<div>
-<p align="center"> 
+<div align="center">
+<p> 
 Projeto para fins de estudo.
 Caso de uso: aplicação rest para gerenciamento de aluguel de carro.
 </p>
