@@ -1,0 +1,43 @@
+"dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+
+transpile-only: só validade alguns erros em tempo de Building, deixando a transpilação em dev mais rápida
+--ignore-watch node_modules : ignora a pasta node_modules
+
+--respawn: faz com que nossa aplicação dê reload toda vez que atualizamos o código
+
+--inspect: permite a conexão com debug do vscode
+
+------------------------------------------------------------------------------------------------------
+tsconfig
+
+strict: false, desabilitar o strict pra deixar essa responsabilidade para o typescript
+
+------------------------------------------------------------------------
+Debug vscode
+
+clicar no debug do vscode no menu lateral >> create lauch.json file >> node
+
+configuration: {
+  type: node,
+  request: attach, 
+  //"request:launch" inicia o debug assim que executar a aplicação
+  //"request:attach" para executar o debug apenas quando eu tiver o erro em alguma requisição e eu quiser checar
+  // com a opção configuration.request.attach não é mais necessário configuration.program
+}
+
+---------------------------------------
+routes
+
+criaremos um arquivo para cada recurso da nossa aplicação
+
+--------------------------------------
+configurando o path de pastas (path-mapping) no typescript:
+yarn add tsconfig-paths -D
+
+adicionar comando no modo dev: -r tsconfig-paths/register
+
+"dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn -r tsconfig-paths/register src/server.ts",
+
+// https://blog.rocketseat.com.br/path-mapping-typescript/
+
+------------------------------------------

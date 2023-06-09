@@ -1,0 +1,60 @@
+repositories
+
+é a camada responsável por fazer toda a manipulação de dados da noss aplicação, select, insert
+
+------------------------------------------------------------------------------------------------
+
+SOLID - Escrito pelo Uncle Bob
+
+S => SRP = Single Responsability Principle -Princícpio da Responsabilidade Única
+
+O => OCP = Open-Closed Principle - Princípio aberto/fechado
+
+L => LSP = Liskov Substitution Principle - Princípio de Substituição de Liskov
+
+I => ISP = Interface Segregation Principle - Princípio da Segregação de Interface
+
+D => DIP = Dependency Inversion Principle - Princípio da Inversão de Dependência
+
+----------------------------------------------
+SRP = exemplo => as rotas são responsáveis por receber as requisições e mandar para 
+alguém processá-las. Depois de processada as informações, a rota responde o cliente.
+Por exemplo, criamos services que tratam de executar o que é necessário para a rota, 
+CreateCategoryService.
+
+DIP => exemplo => nosso service CreateCategoryService não pode instanciar um repository,
+ele não precisa ter que conhecê-lo, então ele recebe como parâmetro o repositório 
+que executará as operações necessárias de persistência. Meu serviço valida as regras de negócio.
+
+LSP => Se você tem uma classe S e essa classe é um subtipo de T, então todos os objetos 
+do tipo T podem ser substituídos pelo objeto do tipo S. Sem que seja necessário
+alterar as propriedades desse programa.
+
+Segundo uncle bob: para criar as partes intercambiáveis, elas devem aderir a um contrato
+que permita que elas sejam substituídas umas pelas outras sem que seja necessário alterar
+as propriedades desse programa. Sem que haja impacto.
+
+-----------------------------------------------
+Nossa software precisa conhecer sempre a interface e não a implementação.
+Por exemplo, os repositórios tem as Intarfaces e as suas Implementações
+----------------------------------------------
+Modules
+
+modulos representam um conjunto de regras e de entidades de um domínio, separar e agrupar nossa aplicação por domínios maiores
+---------------------------------------------
+
+Nossas rota precisam somente mapear as rotas de entrada de acordo com os métodos http e nada mais,
+a lógica de chamar o responsável e retornar a devida resposta vai ficar a cargo dos controllers.
+
+----------------------------------------------------
+Use Cases
+
+são basicamente as operações que iremos realizar. Podemos entender como o lugar das regras de negócio da nossa aplicação
+use case só terá uma responsabilidade
+
+todo useCase só terá um controller
+----------------------------------------------------
+Controller
+controllers terão o handler que recebe a request e a responsáveis
+----------------------------------------------------
+
