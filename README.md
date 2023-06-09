@@ -1,10 +1,12 @@
 ## 💻 Projeto
 
+<p align="center"> 
 Projeto para fins de estudo.
 Caso de uso: aplicação rest para gerenciamento de aluguel de carro.
 
 Arquitetura: clean code, solid.
 Tecnologias: nodejs, typescript, docker.
+</p>
 
 ### Scripts disponíveis
 
@@ -14,7 +16,7 @@ Após clonar o projeto, execute:
 
 O aplicativo iniciará em [http://localhost:3000](http://localhost:3000).
 
-### `npm run lint:fix`
+#### `npm run lint:fix`
 
 Para corrigir possíveis alterações do padrão do projeto.
 
