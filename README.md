@@ -1,12 +1,17 @@
 ## 💻 Projeto
 
+<div>
 <p align="center"> 
 Projeto para fins de estudo.
 Caso de uso: aplicação rest para gerenciamento de aluguel de carro.
+</p>
 
+<p >
 Arquitetura: clean code, solid.
 Tecnologias: nodejs, typescript, docker.
 </p>
+
+</div>
 
 ### Scripts disponíveis
 
