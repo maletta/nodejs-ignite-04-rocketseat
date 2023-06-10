@@ -5,11 +5,24 @@ import {
   ICreateCategoryDTO,
 } from './ICategoriesRepository';
 
+// Sigleton - uma única instância na aplicação
+// sempre se perguntar se é preciso ter apenas uma instância ou não
+
 class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[];
+  private static INSTANCE: CategoriesRepository;
 
-  constructor() {
+  // não é possível mais dar new fora desta classe
+  private constructor() {
     this.categories = [];
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
+    }
+
+    return CategoriesRepository.INSTANCE;
   }
 
   public create({ name, description }: ICreateCategoryDTO): void {
@@ -33,4 +46,4 @@ class CategoriesRepository implements ICategoriesRepository {
   }
 }
 
-export default new CategoriesRepository();
+export { CategoriesRepository };
