@@ -3,13 +3,22 @@ import Specification from '@cars-models/Specification';
 import {
   ISpecificationDTO,
   ISpecificationRepository,
-} from './ISpecificationRepository';
+} from '../ISpecificationRepository';
 
 class SpecificationRepository implements ISpecificationRepository {
   private specifications: Specification[];
+  private static INSTANCE: SpecificationRepository;
 
-  constructor() {
+  private constructor() {
     this.specifications = [];
+  }
+
+  public static getInstance(): SpecificationRepository {
+    if (!SpecificationRepository.INSTANCE) {
+      SpecificationRepository.INSTANCE = new SpecificationRepository();
+    }
+
+    return SpecificationRepository.INSTANCE;
   }
 
   create({ description, name }: ISpecificationDTO): void {

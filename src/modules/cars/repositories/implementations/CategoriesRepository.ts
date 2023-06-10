@@ -3,7 +3,7 @@ import Category from '@cars-models/Category';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from './ICategoriesRepository';
+} from '../ICategoriesRepository';
 
 // Sigleton - uma única instância na aplicação
 // sempre se perguntar se é preciso ter apenas uma instância ou não
