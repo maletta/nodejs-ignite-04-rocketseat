@@ -7,10 +7,20 @@ transpile-only: só validade alguns erros em tempo de Building, deixando a trans
 
 --inspect: permite a conexão com debug do vscode
 
+src/server.ts : arquivo de ponto de entrada para nossa aplicação
+
 ------------------------------------------------------------------------------------------------------
 tsconfig
 
-strict: false, desabilitar o strict pra deixar essa responsabilidade para o typescript
+strict: false
+desabilitar o strict pra deixar essa responsabilidade para o typescript,
+porém não capta alguns erros,
+por exemplo:
+1- validação do tipo de erro lançado com throw new Error(), já que o erro recuperado
+no catch é do tipo unknown.
+2 - ao adicionar atributos no objeto request da requisição é preciso adicionar tipos a
+interface de Request do framework, mas com strict false não precisa.
+
 
 ------------------------------------------------------------------------
 Debug vscode
@@ -21,7 +31,8 @@ configuration: {
   type: node,
   request: attach, 
   //"request:launch" inicia o debug assim que executar a aplicação
-  //"request:attach" para executar o debug apenas quando eu tiver o erro em alguma requisição e eu quiser checar
+  //"request:attach" para executar o debug apenas quando eu tiver o erro em alguma requisição
+  // e eu quiser checar
   // com a opção configuration.request.attach não é mais necessário configuration.program
 }
 
@@ -29,6 +40,7 @@ configuration: {
 routes
 
 criaremos um arquivo para cada recurso da nossa aplicação
+exemplo: /authentication é um recurso, /users, /category são outros recursos
 
 --------------------------------------
 configurando o path de pastas (path-mapping) no typescript:
@@ -37,6 +49,9 @@ yarn add tsconfig-paths -D
 adicionar comando no modo dev: -r tsconfig-paths/register
 
 "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn -r tsconfig-paths/register src/server.ts",
+
+depois adicionar paths no tssconfig:
+"paths": { "@cars-models/*": ["./src/modules/cars/models/*"], }
 
 // https://blog.rocketseat.com.br/path-mapping-typescript/
 

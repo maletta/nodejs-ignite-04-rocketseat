@@ -1,10 +1,10 @@
 repositories
 
-é a camada responsável por fazer toda a manipulação de dados da noss aplicação, select, insert
+é a camada responsável por fazer toda a manipulação de dados da nossa aplicação, select, insert
 
 ------------------------------------------------------------------------------------------------
 
-SOLID - Escrito pelo Uncle Bob
+SOLID - Escrito pelo Uncle Bob, ideiasnão criadas por ele
 
 S => SRP = Single Responsability Principle -Princícpio da Responsabilidade Única
 
@@ -20,7 +20,7 @@ D => DIP = Dependency Inversion Principle - Princípio da Inversão de Dependên
 SRP = exemplo => as rotas são responsáveis por receber as requisições e mandar para 
 alguém processá-las. Depois de processada as informações, a rota responde o cliente.
 Por exemplo, criamos services que tratam de executar o que é necessário para a rota, 
-CreateCategoryService.
+CreateCategoryService, depois substituímos os Services por casos de uso.
 
 DIP => exemplo => nosso service CreateCategoryService não pode instanciar um repository,
 ele não precisa ter que conhecê-lo, então ele recebe como parâmetro o repositório 
@@ -36,7 +36,7 @@ as propriedades desse programa. Sem que haja impacto.
 
 -----------------------------------------------
 Nossa software precisa conhecer sempre a interface e não a implementação.
-Por exemplo, os repositórios tem as Intarfaces e as suas Implementações
+Por exemplo, os repositórios tem as Interfaces e as suas Implementações
 ----------------------------------------------
 Modules
 
