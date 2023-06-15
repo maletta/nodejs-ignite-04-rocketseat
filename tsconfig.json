@@ -68,7 +68,10 @@
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "resolveJsonModule": true,
+
+    /* Mapping paths for folders */
     "paths": {
+      "@src/*":["./src/*"],
       "@cars-models/*": ["./src/modules/cars/models/*"],
       "@cars-repositories/*": ["./src/modules/cars/repositories/*"],
       "@cars-services/*": ["./src/modules/cars/services/*"],
