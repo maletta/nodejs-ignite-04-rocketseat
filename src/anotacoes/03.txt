@@ -1,0 +1,73 @@
+docker
+
+criação de imagens e de containers
+
+FROM // a partir de que imagem vamos criar nossa imagem
+
+WORKDIR // em que local/diretório do sistema operacional iremos 
+armazenar nossos arquivos e informações
+
+
+
+--------------
+
+ao criar a imagem do nosso projeto com dockerfile e depois ao criar o container
+com essa imagem o nosso projeto executa em um container, porém sem a 
+orquestração dos nossos serviços e arquivos.
+
+Por exemplo, ao alterar arquivos do nosso projeto não é possível dar o reload
+E se precisarmos de mais aplicativos (banco de dados), teremos que criar outra imagem
+ou executar outra imagem
+
+Para que nosso container atualize conforme nossos arquivos atualizam, nós precisarmos
+compartilhar um volume pelo arquivo yml entre o host e o container.
+Esse volume conterá os arquivos da nossa aplicação:
+    volumes:
+      - .:/usr/app
+
+
+
+---------------
+COMANDOS DOCKER UTILITÁRIOS
+
+// Para criar imagem a partir do dockerfile
+// docke build é o comando para construir a imagem
+// -t <nome_imagem>:<tag> serve para definir o nome da imagem e sua tag
+// . significa onde o docker vai procurar o arquivo dockerfile e o nome do arquivo
+docker build -t <nome_imagem> .
+docker build -t ignite-curso .
+
+// para criar um container docker
+// docker run cria a execução de um novo container
+// -p 3333:3333 mapeamento de portas do host para o contaiener
+// ignite-curso é o nome da imagem a ser usada no container
+docker run -p 3333:3333 ignite-curso
+
+// para acessar o terminal de um container em execução
+// docker exec para executar um comando dentro de um container
+// -i permite interação com o terminal
+// -t aloca um terminal e ajuda a formatar a saída do terminal
+docker exec -it <container_id_or_name> /bin/bash
+
+// Lista os containers em execução no momento
+docker ps 
+// Lista os containers em execução no momento, até os que não estão executando
+docker ps -a
+// Remove todos os containers listados, independentemente do estado
+docker rm $(docker ps -qa) 
+// Lista imagens disponíveis localmente no sistema
+docker images
+// Lista apenas os IDs das imagens de contêiner disponíveis localment
+docker images -q
+// Lista apenas os IDs de todos os containers, incluindo os que não estão em 
+docker ps -qa
+// Remove todas as imagens de contêiner listadas
+docker rmi $(docker images -q)  
+
+// iniciar container a partir do docker compose
+// -d executa o comando com o terminal separado
+docker compose up -d
+
+// visualizar log do container
+// -f ou --follow permite acompanhar em tempo real, atualiza caso novos dados
+docker logs <container_name> -f 
