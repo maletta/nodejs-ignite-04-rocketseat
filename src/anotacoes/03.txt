@@ -64,9 +64,16 @@ docker ps -qa
 // Remove todas as imagens de contêiner listadas
 docker rmi $(docker images -q)  
 
-// iniciar container a partir do docker compose
+// iniciar container a partir do docker compose file
 // -d executa o comando com o terminal separado
 docker compose up -d
+
+// interromper container a partir do docker compose file
+// -d executa o comando com o terminal separado
+docker compose stop
+
+// interromper e remover redes e volumes de um container a partir do docker compose file
+docker compose down
 
 // visualizar log do container
 // -f ou --follow permite acompanhar em tempo real, atualiza caso novos dados
