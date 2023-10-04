@@ -1,13 +1,22 @@
 version: '3.7'
 
 services:
-  database:
+  database_ignite:
     image: postgres
+    container_name: database_ignite
+    restart: always
     ports:
       - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=ignite-04
+    volumes:
+      - pgdata:/data/postgres
+    network_mode: host
 
   app:
-    container_name: curso-ignite-compose
+    container_name: curso_ignite_compose
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,3 +24,8 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
+    network_mode: host
+
+volumes:
+  pgdata:
+    driver: local
