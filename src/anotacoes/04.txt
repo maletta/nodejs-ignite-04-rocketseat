@@ -2,6 +2,8 @@ TYPEORM e DOCKER
 
 -- createConnection cria a conexão baseado no arquivo ormconfig.json, porém está depreciado
 
+-- nova forma de realizar conexão é com DataSource
+
 -- volumes docker - criado no service database_ignite
     volumes:
       - pgdata:/data/postgres
@@ -33,4 +35,15 @@ para verificar isso:
 
 a propriedade "network_mode: host" do docker-compose.yml então define um mode de rede para os dois serviços
 
+
+------- MIGRATIONS ------------
+
+Útil para conseguir um controle melhor da criação e da alteração da nossa database, de modo
+que o banco de dados executado no docker pelo time fique sempre atualizado conforme os arquivos das MIGRATIONS
+
+Toda a equipe trabalhará com a mesma versão do banco de dados.
+
+---- SCRIPT PARA MIGRATIONS ---------
+é possível instalar  "npm i -g typeorm" de modo global para executar scripts, ou podemos criar um script dentro
+do nosso package.json
 
