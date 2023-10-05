@@ -47,3 +47,5 @@ Toda a equipe trabalhará com a mesma versão do banco de dados.
 é possível instalar  "npm i -g typeorm" de modo global para executar scripts, ou podemos criar um script dentro
 do nosso package.json
 
+criando migrations: preciso passar o endereço de onde salvará
+npm run typeorm --  migration:create ./src/database/migrations/Teste
