@@ -57,5 +57,10 @@ criando migrations nova forma: preciso passar o endereço de onde salvará
 npm run typeorm --  migration:create ./src/database/migrations/CreateCategories
 
 criando migrations antiga forma: preciso passar o endereço de onde salvará
-npm run typeorm -- migration:create -n Teste
+npm run typeorm -- migration:create -n CreateCategories
+
+executando as migrations antiga forma:
+mapeia o diretório das migrations na propriedade migrations de ormconfig.json
+npm run typeorm migration:run
+
 ------------------------------------
