@@ -68,7 +68,7 @@ docker rmi $(docker images -q)
 // -d executa o comando com o terminal separado
 docker compose up -d
 
-// interromper container a partir do docker compose file
+// interromper container e mantem recursos a partir do docker compose file
 // -d executa o comando com o terminal separado
 docker compose stop
 

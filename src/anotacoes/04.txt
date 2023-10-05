@@ -38,14 +38,24 @@ a propriedade "network_mode: host" do docker-compose.yml então define um mode d
 
 ------- MIGRATIONS ------------
 
-Útil para conseguir um controle melhor da criação e da alteração da nossa database, de modo
+- Útil para conseguir um controle melhor da criação e da alteração da nossa database, de modo
 que o banco de dados executado no docker pelo time fique sempre atualizado conforme os arquivos das MIGRATIONS
 
-Toda a equipe trabalhará com a mesma versão do banco de dados.
+- Toda a equipe trabalhará com a mesma versão do banco de dados.
+
+- migrations configuradas em ormconfig.json
+  (depreciado, não configura mais local das migrations)
+
+
+
 
 ---- SCRIPT PARA MIGRATIONS ---------
 é possível instalar  "npm i -g typeorm" de modo global para executar scripts, ou podemos criar um script dentro
-do nosso package.json
+do nosso package.json usando a versão typeorm do node_modules
 
-criando migrations: preciso passar o endereço de onde salvará
-npm run typeorm --  migration:create ./src/database/migrations/Teste
+criando migrations nova forma: preciso passar o endereço de onde salvará
+npm run typeorm --  migration:create ./src/database/migrations/CreateCategories
+
+criando migrations antiga forma: preciso passar o endereço de onde salvará
+npm run typeorm -- migration:create -n Teste
+------------------------------------
