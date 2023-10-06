@@ -1,4 +1,4 @@
-import Category from '@cars-models/Category';
+import Category from '@cars-entities/Category';
 
 // DTO => Data Tranfer Object camada para transferir de uma camada para outra
 type ICreateCategoryDTO = Omit<Category, 'created_at'>;

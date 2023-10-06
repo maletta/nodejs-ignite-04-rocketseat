@@ -71,3 +71,6 @@ mapeia o diretório das migrations na propriedade migrations de ormconfig.json
 npm run typeorm migration:run
 
 ------------------------------------
+
+npm run typeorm -- migration:run -d ./src/database/data-source.ts 
+npm run typeorm -- migration:generate ./src/database/migrations/Create -d ./src/database/data-source.ts

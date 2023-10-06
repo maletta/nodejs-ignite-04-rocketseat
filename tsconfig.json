@@ -72,7 +72,7 @@
     /* Mapping paths for folders */
     "paths": {
       "@src/*":["./src/*"],
-      "@cars-models/*": ["./src/modules/cars/models/*"],
+      "@cars-entities/*": ["./src/modules/cars/entities/*"],
       "@cars-repositories/*": ["./src/modules/cars/repositories/*"],
       "@cars-services/*": ["./src/modules/cars/services/*"],
       "@cars-useCases/*": ["./src/modules/cars/useCases/*"],
