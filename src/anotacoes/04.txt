@@ -53,9 +53,16 @@ que o banco de dados executado no docker pelo time fique sempre atualizado confo
 é possível instalar  "npm i -g typeorm" de modo global para executar scripts, ou podemos criar um script dentro
 do nosso package.json usando a versão typeorm do node_modules
 
+-- NOVO
 criando migrations nova forma: preciso passar o endereço de onde salvará
-npm run typeorm --  migration:create ./src/database/migrations/CreateCategories
+npm run typeorm -- migration:create ./src/database/migrations/CreateCategories
 
+executando migrations e revertando migrations
+npm run typeorm -- migration:run -d ./src/database/data-source.ts 
+npm run typeorm -- migration:revert -d ./src/database/data-source.ts 
+
+
+-- ANTIGO
 criando migrations antiga forma: preciso passar o endereço de onde salvará
 npm run typeorm -- migration:create -n CreateCategories
 
