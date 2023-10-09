@@ -8,7 +8,9 @@ const categoriesRoutes = Router();
 const upload = multer({ dest: './temp' });
 
 categoriesRoutes.post('/', (request, response) => {
-  return createCategoryController.handle(request, response);
+  console.log('entrou na rota de post category ');
+
+  return createCategoryController().handle(request, response);
 });
 
 categoriesRoutes.get('/', (request, response) => {
