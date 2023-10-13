@@ -9,5 +9,9 @@ const router = Router();
 router.use('/categories', categoriesRoutes);
 router.use('/specifications', specificationsRoutes);
 router.use('/api-docs', swaggerRoutes);
+router.get('/date', (req, res) => {
+  console.log(new Date());
+  res.status(200).send();
+});
 
 export { router };

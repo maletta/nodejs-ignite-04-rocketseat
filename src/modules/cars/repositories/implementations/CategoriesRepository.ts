@@ -11,7 +11,6 @@ import {
 // sempre se perguntar se é preciso ter apenas uma instância ou não
 
 class CategoriesRepository implements ICategoriesRepository {
-  private categories: Category[];
   private static INSTANCE: CategoriesRepository;
   private repository: Repository<Category>;
 
@@ -42,7 +41,8 @@ class CategoriesRepository implements ICategoriesRepository {
   }
 
   public async list(): Promise<Category[]> {
-    return this.repository.find();
+    const categories = await this.repository.find();
+    return categories;
   }
 
   public async findByName(name: string): Promise<Category> {

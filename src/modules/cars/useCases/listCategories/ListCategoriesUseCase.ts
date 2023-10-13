@@ -11,7 +11,7 @@ class ListCategoriesUseCase {
    * will have the same methods
    */
   constructor(private categoriesRepository: ICategoriesRepository) {}
-  public execute(): Category[] {
+  public async execute(): Promise<Category[]> {
     return this.categoriesRepository.list();
   }
 }
