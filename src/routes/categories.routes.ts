@@ -1,4 +1,4 @@
-import { createCategoryController } from '@cars-useCases/createCategory';
+import createCategoryController from '@cars-useCases/createCategory';
 import { importCategoryController } from '@cars-useCases/importCategory';
 import { listCategoriesController } from '@cars-useCases/listCategories';
 import { Router } from 'express';

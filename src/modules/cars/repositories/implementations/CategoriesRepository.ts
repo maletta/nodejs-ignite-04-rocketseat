@@ -11,21 +11,11 @@ import {
 // sempre se perguntar se é preciso ter apenas uma instância ou não
 
 class CategoriesRepository implements ICategoriesRepository {
-  private static INSTANCE: CategoriesRepository;
   private repository: Repository<Category>;
 
-  // não é possível mais dar new fora desta classe
   public constructor() {
     console.log('construtor Category Repository');
     this.repository = AppDataSource.getRepository(Category);
-  }
-
-  public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTANCE) {
-      CategoriesRepository.INSTANCE = new CategoriesRepository();
-    }
-
-    return CategoriesRepository.INSTANCE;
   }
 
   public async create({

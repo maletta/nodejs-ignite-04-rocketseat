@@ -5,8 +5,10 @@ import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 // const categoriesRepository = CategoriesRepository.getInstance();
 
-const createCategoryController = (): CreateCategoryController => {
+export default (): CreateCategoryController => {
+  console.log('----------------------------------');
   console.log('executou createCategoryController');
+  console.log('---------------------------------- ');
   const categoriesRepository = new CategoriesRepository();
   const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
 
@@ -16,5 +18,3 @@ const createCategoryController = (): CreateCategoryController => {
 
   return new CreateCategoryController(createCategoryUseCase);
 };
-
-export { createCategoryController };
