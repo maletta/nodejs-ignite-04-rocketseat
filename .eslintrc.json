@@ -12,13 +12,14 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "experimentalDecorators": true
   },
   "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "prettier"],
   "rules": {
     "camelcase": "off",
-    "prettier/prettier": "error",
+    // "prettier/prettier": "error", // pois já utilizo "plugin:prettier/recommended"
     "import/no-unresolved": "error",
     "no-unused-vars": "off",
     "@typescript-eslint/naming-convention": [

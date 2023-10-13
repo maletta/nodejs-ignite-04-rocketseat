@@ -1,4 +1,6 @@
 import Specification from '@cars-entities/Specification';
+import { AppDataSource } from '@src/database/data-source';
+import { Repository } from 'typeorm';
 
 import {
   ISpecificationDTO,
@@ -6,42 +8,35 @@ import {
 } from '../ISpecificationRepository';
 
 class SpecificationRepository implements ISpecificationRepository {
-  private specifications: Specification[];
-  private static INSTANCE: SpecificationRepository;
+  private repository: Repository<Specification>;
 
-  private constructor() {
-    this.specifications = [];
+  public constructor() {
+    console.log('construtor Specification Repository');
+    this.repository = AppDataSource.getRepository(Specification);
   }
 
-  public static getInstance(): SpecificationRepository {
-    if (!SpecificationRepository.INSTANCE) {
-      SpecificationRepository.INSTANCE = new SpecificationRepository();
-    }
-
-    return SpecificationRepository.INSTANCE;
-  }
-
-  create({ description, name }: ISpecificationDTO): void {
-    const specification = new Specification();
-    Object.assign(specification, {
-      description,
+  public async create({ description, name }: ISpecificationDTO): Promise<void> {
+    const specification = this.repository.create({
       name,
-      created_at: new Date(),
+      description,
     });
 
-    this.specifications.push(specification);
+    await this.repository.save(specification);
   }
 
-  list(): Specification[] {
-    return this.specifications;
+  public async list(): Promise<Specification[]> {
+    const specifications = await this.repository.find();
+    return specifications;
   }
 
-  findByName(name: string): Specification {
-    const specification = this.specifications.find(
-      (item) => item.name === name
-    );
+  public async findByName(name: string): Promise<Specification> {
+    const specifications = this.repository.findOne({
+      where: {
+        name,
+      },
+    });
 
-    return specification;
+    return specifications;
   }
 }
 

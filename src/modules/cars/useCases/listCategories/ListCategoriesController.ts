@@ -7,6 +7,7 @@ class ListCatgoriesController {
 
   public async handle(request: Request, response: Response): Promise<Response> {
     const allCategories = await this.listCategoriesUseCase.execute();
+
     return response.status(200).send(allCategories);
   }
 }

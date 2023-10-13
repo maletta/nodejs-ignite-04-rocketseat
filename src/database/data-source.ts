@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
   username: 'docker',
   password: 'password',
   database: 'ignite-04',
-  synchronize: true, // atualiza a base de dados conforme as migrations ? pode ser perigoso
+  synchronize: false, // atualiza a base de dados conforme as migrations ? pode ser perigoso
   logging: true,
   // entities: [Category],
   entities: ['./src/modules/cars/entities/*.ts'],
