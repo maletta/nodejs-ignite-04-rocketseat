@@ -14,7 +14,7 @@ class CreateSpecificationController {
     );
     await createSpecificationUseCase.execute({ name, description });
 
-    return response.status(201).json();
+    return response.status(201).send();
   }
 }
 

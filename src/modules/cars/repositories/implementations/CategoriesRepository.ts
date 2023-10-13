@@ -23,8 +23,8 @@ class CategoriesRepository implements ICategoriesRepository {
     description,
   }: ICreateCategoryDTO): Promise<void> {
     const category = this.repository.create({
-      name,
       description,
+      name,
     });
 
     await this.repository.save(category);

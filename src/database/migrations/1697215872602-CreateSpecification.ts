@@ -1,10 +1,12 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateSpecification1697215872602 implements MigrationInterface {
+  public readonly tableName = 'specifications';
+
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'specifications',
+        name: this.tableName,
         columns: [
           {
             name: 'id',
@@ -30,6 +32,6 @@ export class CreateSpecification1697215872602 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('specifications');
+    await queryRunner.dropTable(this.tableName);
   }
 }
