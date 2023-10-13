@@ -1,14 +1,19 @@
 import { ICategoriesRepository } from '@cars-repositories/ICategoriesRepository';
 import csv from 'csv-parse';
 import fs from 'fs';
+import { inject, injectable } from 'tsyringe';
 
 interface IImportCategory {
   name: string;
   description: string;
 }
 
+@injectable() // transforma a classe em um injetável
 class ImportCategoryUseCase {
-  constructor(private categoryRepository: ICategoriesRepository) {}
+  constructor(
+    @inject('CategoriesRepository') // injeta o singleton criado
+    private categoryRepository: ICategoriesRepository
+  ) {}
 
   private loadCategories(
     file: Express.Multer.File
@@ -50,10 +55,10 @@ class ImportCategoryUseCase {
     await categories.forEach(async (category) => {
       const { name, description } = category;
 
-      const existCategory = this.categoryRepository.findByName(name);
+      const existCategory = await this.categoryRepository.findByName(name);
 
       if (!existCategory) {
-        this.categoryRepository.create({ name, description });
+        await this.categoryRepository.create({ name, description });
       }
     });
   }
