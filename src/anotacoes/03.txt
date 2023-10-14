@@ -1,5 +1,5 @@
-docker
-
+DOCKER
+------------------------------------------------------------------------------------
 criação de imagens e de containers
 
 FROM // a partir de que imagem vamos criar nossa imagem

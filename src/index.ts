@@ -1,4 +1,4 @@
-class User {
+class UserTest {
   public id: string;
 
   public isActive: boolean;
@@ -9,7 +9,7 @@ class User {
   }
 }
 
-const A = () => User;
+const A = () => UserTest;
 
 console.log('A ', A);
 console.log('A() ', A);

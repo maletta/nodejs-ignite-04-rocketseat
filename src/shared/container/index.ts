@@ -1,3 +1,5 @@
+import { UserRepository } from '@src/modules/accounts/repositories/implementations/UsersRepository';
+import { IUsersRepository } from '@src/modules/accounts/repositories/IUsersRepository';
 import { ICategoriesRepository } from '@src/modules/cars/repositories/ICategoriesRepository';
 import { CategoriesRepository } from '@src/modules/cars/repositories/implementations/CategoriesRepository';
 import { SpecificationRepository } from '@src/modules/cars/repositories/implementations/SpecificationRepository';
@@ -14,4 +16,10 @@ container.registerSingleton<ICategoriesRepository>(
 container.registerSingleton<ISpecificationRepository>(
   'SpecificationRepository',
   SpecificationRepository
+);
+
+// criando uma referência a instância singleton que será injetada
+container.registerSingleton<IUsersRepository>(
+  'UsersRepository',
+  UserRepository
 );

@@ -76,6 +76,7 @@
       "@cars-repositories/*": ["./src/modules/cars/repositories/*"],
       "@cars-services/*": ["./src/modules/cars/services/*"],
       "@cars-useCases/*": ["./src/modules/cars/useCases/*"],
+      "@accounts/*": ["./src/modules/accounts/*"],
       "@routes/*": ["./src/routes/*"],
       "@shared/*": ["./src/shared/*"],
     }

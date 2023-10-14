@@ -12,7 +12,10 @@ export const AppDataSource = new DataSource({
   synchronize: false, // atualiza a base de dados conforme as migrations ? pode ser perigoso
   logging: true,
   // entities: [Category],
-  entities: ['./src/modules/cars/entities/*.ts'],
+  entities: [
+    './src/modules/cars/entities/*.ts',
+    './src/modules/accounts/entities/*.ts',
+  ],
   subscribers: [],
   migrations: ['./src/database/migrations/*.ts'],
 });
