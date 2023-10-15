@@ -1,3 +1,4 @@
+import { ensureAuthenticated } from '@src/middleware/ensureAuthenticated';
 import { Router } from 'express';
 
 import { authenticateRoutes } from './authenticate.routes';
@@ -8,14 +9,10 @@ import { usersRoutes } from './users.routes';
 
 const router = Router();
 
+router.use('/api-docs', swaggerRoutes);
+router.use(authenticateRoutes);
 router.use('/categories', categoriesRoutes);
 router.use('/specifications', specificationsRoutes);
 router.use('/users', usersRoutes);
-router.use(authenticateRoutes);
-router.use('/api-docs', swaggerRoutes);
-router.get('/date', (req, res) => {
-  console.log(new Date());
-  res.status(200).send();
-});
 
 export { router };

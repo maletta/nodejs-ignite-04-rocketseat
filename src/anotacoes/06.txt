@@ -5,3 +5,16 @@ express não repassa os erros gerados com throw para frente,
 para isso instalmos express-async-errors e agora erros gerados
 podem ser passados para frente e tratados com um middleware de erros.
 
+----------------------------------------------------------
+Modules Augmentation para Express
+
+na pasta @types dentro de "src" nós criamos tipos para sobrescreverem
+ou incrementarem outros tipos, fazemos isso para o Express, para adicionar
+o objeto "user" para o objeto "request" do Express;
+
+-----------------------------------------------------------
+Criação de função para upload do multer
+
+criação da função upload que formata o nome do arquivo e destino do arquivo
+
+------------------------------------------------------------

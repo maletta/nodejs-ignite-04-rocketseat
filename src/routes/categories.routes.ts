@@ -1,4 +1,5 @@
 // import createCategoryController from '@cars-useCases/createCategory';
+import uploadConfig from '@src/config/upload';
 import { ensureAuthenticated } from '@src/middleware/ensureAuthenticated';
 import { CreateCategoryController } from '@src/modules/cars/useCases/createCategory/CreateCategoryController';
 import { ImportCategoryController } from '@src/modules/cars/useCases/importCategory/ImportCategoryController';
@@ -7,7 +8,7 @@ import { Router } from 'express';
 import multer from 'multer';
 
 const categoriesRoutes = Router();
-const upload = multer({ dest: './temp' });
+const upload = multer(uploadConfig.upload('./temp'));
 
 const createCategoryController = new CreateCategoryController();
 const listCategoriesController = new ListCatgoriesController();
