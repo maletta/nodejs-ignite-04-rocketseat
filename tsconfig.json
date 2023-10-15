@@ -79,6 +79,7 @@
       "@accounts/*": ["./src/modules/accounts/*"],
       "@routes/*": ["./src/routes/*"],
       "@shared/*": ["./src/shared/*"],
+      "@errors/*": ["./src/errors/*"],
     }
   }
 }

@@ -1,0 +1,7 @@
+Errors
+---------------------------------------------------------
+
+express não repassa os erros gerados com throw para frente,
+para isso instalmos express-async-errors e agora erros gerados
+podem ser passados para frente e tratados com um middleware de erros.
+
