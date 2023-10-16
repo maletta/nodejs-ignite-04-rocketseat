@@ -8,7 +8,7 @@ import { Router } from 'express';
 import multer from 'multer';
 
 const categoriesRoutes = Router();
-const upload = multer(uploadConfig.upload('./temp'));
+const upload = multer(uploadConfig.upload('./tmp'));
 
 const createCategoryController = new CreateCategoryController();
 const listCategoriesController = new ListCatgoriesController();
