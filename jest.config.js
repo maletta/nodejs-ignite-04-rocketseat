@@ -2,13 +2,17 @@
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/en/configuration.html
  */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { pathsToModuleNameMapper } = require('ts-jest');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
   // Stop running tests after `n` failures
-  // bail: 0,
+  // Para a execução dos testes no primeiro erro
+  bail: true,
 
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "C:\\Users\\danil\\AppData\\Local\\Temp\\jest",
@@ -31,7 +35,7 @@ module.exports = {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -81,7 +85,18 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: pathsToModuleNameMapper({
+    '@src/*': ['<rootDir>/src/*'],
+    '@cars-entities/*': ['<rootDir>/src/modules/cars/entities/*'],
+    '@cars-repositories/*': ['<rootDir>/src/modules/cars/repositories/*'],
+    '@cars-services/*': ['<rootDir>/src/modules/cars/services/*'],
+    '@cars-useCases/*': ['<rootDir>/src/modules/cars/useCases/*'],
+    '@accounts/*': ['<rootDir>/src/modules/accounts/*'],
+    '@routes/*': ['<rootDir>/src/routes/*'],
+    '@shared/*': ['<rootDir>/src/shared/*'],
+    '@errors/*': ['<rootDir>/src/errors/*'],
+    '@utils/*': ['<rootDir>/src/utils/*'],
+  }),
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -93,7 +108,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: "ts-jest",
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -128,7 +143,7 @@ module.exports = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ["<rootDir>/setupTest.ts"],
+  setupFilesAfterEnv: ['<rootDir>/setupTest.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -137,7 +152,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -146,7 +161,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ["<rootDir>/src/__tests__/**/*.spec.ts"],
+  testMatch: ['<rootDir>/src/**/*.spec.ts'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
