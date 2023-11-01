@@ -1,5 +1,5 @@
 import { IUsersRepository } from '@accounts/repositories/IUsersRepository';
-import { AppError } from '@src/errors/AppError';
+import { AppError } from '@errors/AppError';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';

@@ -87,14 +87,15 @@ module.exports = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: pathsToModuleNameMapper(
     {
-      '@src/*': ['*'],
       '@cars/*': ['modules/cars/*'],
       '@accounts/*': ['modules/accounts/*'],
+      '@database/*': ['database/*'],
       '@routes/*': ['routes/*'],
       '@shared/*': ['shared/*'],
       '@errors/*': ['errors/*'],
       '@utils/*': ['utils/*'],
       '@config/*': ['config/*'],
+      '@middleware/*': ['middleware/*'],
     },
     {
       prefix: '<rootDir>/src/',

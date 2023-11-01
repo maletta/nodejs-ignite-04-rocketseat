@@ -1,9 +1,9 @@
-import { UserRepository } from '@src/modules/accounts/infra/typeorm/repositories/UsersRepository';
-import { IUsersRepository } from '@src/modules/accounts/repositories/IUsersRepository';
-import { ICategoriesRepository } from '@src/modules/cars/repositories/ICategoriesRepository';
-import { CategoriesRepository } from '@src/modules/cars/repositories/implementations/CategoriesRepository';
-import { SpecificationRepository } from '@src/modules/cars/repositories/implementations/SpecificationRepository';
-import { ISpecificationRepository } from '@src/modules/cars/repositories/ISpecificationRepository';
+import { UserRepository } from '@accounts/infra/typeorm/repositories/UsersRepository';
+import { IUsersRepository } from '@accounts/repositories/IUsersRepository';
+import { CategoriesRepository } from '@cars/infra/typeorm/repositories/CategoriesRepository';
+import { SpecificationRepository } from '@cars/infra/typeorm/repositories/SpecificationRepository';
+import { ICategoriesRepository } from '@cars/repositories/ICategoriesRepository';
+import { ISpecificationRepository } from '@cars/repositories/ISpecificationRepository';
 import { container } from 'tsyringe';
 
 // criando uma referência a instância singleton que será injetada

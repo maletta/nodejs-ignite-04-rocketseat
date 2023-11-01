@@ -1,9 +1,9 @@
 // import createCategoryController from '@cars-useCases/createCategory';
-import uploadConfig from '@src/config/upload';
-import { ensureAuthenticated } from '@src/middleware/ensureAuthenticated';
-import { CreateCategoryController } from '@src/modules/cars/useCases/createCategory/CreateCategoryController';
-import { ImportCategoryController } from '@src/modules/cars/useCases/importCategory/ImportCategoryController';
-import { ListCatgoriesController } from '@src/modules/cars/useCases/listCategories/ListCategoriesController';
+import { CreateCategoryController } from '@cars/useCases/createCategory/CreateCategoryController';
+import { ImportCategoryController } from '@cars/useCases/importCategory/ImportCategoryController';
+import { ListCatgoriesController } from '@cars/useCases/listCategories/ListCategoriesController';
+import uploadConfig from '@config/upload';
+import { ensureAuthenticated } from '@middleware/ensureAuthenticated';
 import { Router } from 'express';
 import multer from 'multer';
 

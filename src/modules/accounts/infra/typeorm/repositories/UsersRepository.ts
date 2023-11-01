@@ -1,7 +1,7 @@
 import { ICreateUserDTO } from '@accounts/dtos/ICreateUserDTO';
 import Users from '@accounts/infra/typeorm/entities/User';
 import { IUsersRepository } from '@accounts/repositories/IUsersRepository';
-import { AppDataSource } from '@src/database/data-source';
+import { AppDataSource } from '@database/data-source';
 import { Repository } from 'typeorm';
 
 class UserRepository implements IUsersRepository {

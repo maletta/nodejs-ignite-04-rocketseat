@@ -12,8 +12,8 @@ export const AppDataSource = new DataSource({
   logging: true,
   // entities: [Category],
   entities: [
-    './src/modules/cars/entities/*.ts',
-    './src/modules/accounts/entities/*.ts',
+    './src/modules/cars/infra/typeorm/entities/*.ts',
+    './src/modules/accounts/infra/typeorm/entities/*.ts',
   ],
   subscribers: [],
   migrations: ['./src/database/migrations/*.ts'],

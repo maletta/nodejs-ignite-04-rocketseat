@@ -1,11 +1,11 @@
 import Category from '@cars/infra/typeorm/entities/Category';
-import { AppDataSource } from '@src/database/data-source';
+import { AppDataSource } from '@database/data-source';
 import { Repository } from 'typeorm';
 
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from '../ICategoriesRepository';
+} from '../../../repositories/ICategoriesRepository';
 
 // Sigleton - uma única instância na aplicação
 // sempre se perguntar se é preciso ter apenas uma instância ou não

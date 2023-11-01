@@ -1,5 +1,5 @@
 import { ICategoriesRepository } from '@cars/repositories/ICategoriesRepository';
-import { AppError } from '@src/errors/AppError';
+import { AppError } from '@errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {

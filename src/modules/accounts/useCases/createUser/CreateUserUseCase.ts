@@ -1,6 +1,6 @@
 import { ICreateUserDTO } from '@accounts/dtos/ICreateUserDTO';
 import { IUsersRepository } from '@accounts/repositories/IUsersRepository';
-import { AppError } from '@src/errors/AppError';
+import { AppError } from '@errors/AppError';
 import { hash } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 

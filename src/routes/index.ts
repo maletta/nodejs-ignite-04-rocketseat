@@ -1,4 +1,4 @@
-import { ensureAuthenticated } from '@src/middleware/ensureAuthenticated';
+import { ensureAuthenticated } from '@middleware/ensureAuthenticated';
 import { Router } from 'express';
 
 import { authenticateRoutes } from './authenticate.routes';
