@@ -10,7 +10,23 @@ Jest
 
     bail: true,
     preset: "ts-jest",
+    moduleNameMapper: pathsToModuleNameMapper({
+    '@src/*': ['<rootDir>/src/*'],
+    '@cars-entities/*': ['<rootDir>/src/modules/cars/entities/*'],
+    '@cars-repositories/*': ['<rootDir>/src/modules/cars/repositories/*'],
+    '@cars-services/*': ['<rootDir>/src/modules/cars/services/*'],
+    '@cars-useCases/*': ['<rootDir>/src/modules/cars/useCases/*'],
+    '@accounts/*': ['<rootDir>/src/modules/accounts/*'],
+    '@routes/*': ['<rootDir>/src/routes/*'],
+    '@shared/*': ['<rootDir>/src/shared/*'],
+    '@errors/*': ['<rootDir>/src/errors/*'],
+    '@utils/*': ['<rootDir>/src/utils/*'],
+  }),
   }
+
+
+  moduleNameMapper: mapeando os diretórios da aplicação para que o jest entenda as importações
+
   *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 ------------------------------------------------
@@ -38,4 +54,10 @@ Começar nossa aplicação pelos Testes
 
 -------------------------------------------------
 
+InMemoryRepository
+
+  Criação de classes que implementam interfaces de repositórios,
+  mas sem conexão com base de dados, recursos em memória.
+
+----------------------------------------------------
 
