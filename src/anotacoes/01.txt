@@ -47,6 +47,8 @@ exemplo: /authentication é um recurso, /users, /category são outros recursos
 
 --------------------------------------
 configurando o path de pastas (path-mapping) no typescript:
+tsconfig-paths é utilizado para que o ts-node-dev identifiquei os caminhos definidos no tsconfig.json
+
 yarn add tsconfig-paths -D
 
 adicionar comando no modo dev: -r tsconfig-paths/register

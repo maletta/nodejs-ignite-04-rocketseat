@@ -96,6 +96,7 @@ module.exports = {
     '@shared/*': ['<rootDir>/src/shared/*'],
     '@errors/*': ['<rootDir>/src/errors/*'],
     '@utils/*': ['<rootDir>/src/utils/*'],
+    '@config/*': ['<rootDir>/src/config/*'],
   }),
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

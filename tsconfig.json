@@ -44,7 +44,7 @@
 
     /* Module Resolution Options */
     "moduleResolution": "node",                  /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
-    "baseUrl": "." /* Base directory to resolve non-absolute module names. */,
+    "baseUrl": "./src" /* Base directory to resolve non-absolute module names. */,
     // "paths": {},                                 /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                              /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                             /* List of folders to include type definitions from. */
@@ -71,16 +71,17 @@
     
     /* Mapping paths for folders */
     "paths": {
-      "@src/*":["./src/*"],
-      "@cars-entities/*": ["./src/modules/cars/entities/*"],
-      "@cars-repositories/*": ["./src/modules/cars/repositories/*"],
-      "@cars-services/*": ["./src/modules/cars/services/*"],
-      "@cars-useCases/*": ["./src/modules/cars/useCases/*"],
-      "@accounts/*": ["./src/modules/accounts/*"],
-      "@routes/*": ["./src/routes/*"],
-      "@shared/*": ["./src/shared/*"],
-      "@errors/*": ["./src/errors/*"],
-      "@utils/*": ["./src/utils/*"],
+      "@src/*":["*"],
+      "@cars-entities/*": ["modules/cars/entities/*"],
+      "@cars-repositories/*": ["modules/cars/repositories/*"],
+      "@cars-services/*": ["modules/cars/services/*"],
+      "@cars-useCases/*": ["modules/cars/useCases/*"],
+      "@accounts/*": ["modules/accounts/*"],
+      "@routes/*": ["routes/*"],
+      "@shared/*": ["shared/*"],
+      "@errors/*": ["errors/*"],
+      "@utils/*": ["utils/*"],
+      "@config/*": ["config/*"],
     }
   }
 }
