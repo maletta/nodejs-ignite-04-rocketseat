@@ -13,7 +13,7 @@ const server = express();
 
 server.use(express.json());
 server.use(router);
-server.use(errorMiddleware);
+server.use(errorMiddleware); // deve ser o último middleware a ser importado, pois lida com erros anteriores
 
 server.listen(3333, () => {
   console.log('listen on port ', 3333);
