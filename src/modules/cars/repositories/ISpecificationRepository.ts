@@ -1,4 +1,4 @@
-import Specification from '@cars-entities/Specification';
+import Specification from '@cars/infra/typeorm/entities/Specification';
 
 type ISpecificationDTO = Omit<Specification, 'created_at'>;
 

@@ -88,10 +88,7 @@ module.exports = {
   moduleNameMapper: pathsToModuleNameMapper(
     {
       '@src/*': ['*'],
-      '@cars-entities/*': ['modules/cars/entities/*'],
-      '@cars-repositories/*': ['modules/cars/repositories/*'],
-      '@cars-services/*': ['modules/cars/services/*'],
-      '@cars-useCases/*': ['modules/cars/useCases/*'],
+      '@cars/*': ['modules/cars/*'],
       '@accounts/*': ['modules/accounts/*'],
       '@routes/*': ['routes/*'],
       '@shared/*': ['shared/*'],

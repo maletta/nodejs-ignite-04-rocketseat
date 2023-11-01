@@ -1,4 +1,4 @@
-import { UserRepository } from '@src/modules/accounts/repositories/implementations/UsersRepository';
+import { UserRepository } from '@src/modules/accounts/infra/typeorm/repositories/UsersRepository';
 import { IUsersRepository } from '@src/modules/accounts/repositories/IUsersRepository';
 import { ICategoriesRepository } from '@src/modules/cars/repositories/ICategoriesRepository';
 import { CategoriesRepository } from '@src/modules/cars/repositories/implementations/CategoriesRepository';

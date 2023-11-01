@@ -1,4 +1,4 @@
-import Specification from '@cars-entities/Specification';
+import Specification from '@cars/infra/typeorm/entities/Specification';
 import { AppDataSource } from '@src/database/data-source';
 import { Repository } from 'typeorm';
 

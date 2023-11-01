@@ -1,4 +1,4 @@
-import Category from '@cars-entities/Category';
+import Category from '@cars/infra/typeorm/entities/Category';
 
 // DTO => Data Tranfer Object camada para transferir de uma camada para outra
 type ICreateCategoryDTO = Omit<Category, 'created_at'>;

@@ -12,10 +12,7 @@ Jest
     preset: "ts-jest",
     moduleNameMapper: pathsToModuleNameMapper({
     '@src/*': ['<rootDir>/src/*'],
-    '@cars-entities/*': ['<rootDir>/src/modules/cars/entities/*'],
-    '@cars-repositories/*': ['<rootDir>/src/modules/cars/repositories/*'],
-    '@cars-services/*': ['<rootDir>/src/modules/cars/services/*'],
-    '@cars-useCases/*': ['<rootDir>/src/modules/cars/useCases/*'],
+    '@cars/*': ['<rootDir>/src/modules/cars/*'],
     '@accounts/*': ['<rootDir>/src/modules/accounts/*'],
     '@routes/*': ['<rootDir>/src/routes/*'],
     '@shared/*': ['<rootDir>/src/shared/*'],
