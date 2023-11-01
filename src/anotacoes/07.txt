@@ -67,3 +67,9 @@ implementações do express (rotas)
 Tudo que for da camada externa (framework de banco, framework de servidor http, biblioteca envio de email,
 implementação de entidades)
 -----------------------------------------------------
+
+REQUISITOS DA APLICAÇÃO
+
+requisitos funcionais:
+
+requisitos não funcionais:
