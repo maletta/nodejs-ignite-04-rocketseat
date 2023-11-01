@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import '@shared/container';
 import 'express-async-errors'; // lib para tratar erros
-import '@database/data-source';
+import '@shared/infra/typeorm/data-source';
 
 import express from 'express';
 

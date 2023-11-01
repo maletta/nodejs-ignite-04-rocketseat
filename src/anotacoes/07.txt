@@ -58,3 +58,12 @@ InMemoryRepository
 
 ----------------------------------------------------
 
+Arquitetura do sistema
+
+Em todos os nossos módulos nós criamos uma pasta de infra que armazena tudo que não 
+é regra de negócio do sistema, por exemplo as implementações de typeorm, conexões com typeorm,
+implementações do express (rotas)
+
+Tudo que for da camada externa (framework de banco, framework de servidor http, biblioteca envio de email,
+implementação de entidades)
+-----------------------------------------------------

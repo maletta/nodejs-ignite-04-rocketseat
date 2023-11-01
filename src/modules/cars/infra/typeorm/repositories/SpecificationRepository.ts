@@ -1,6 +1,7 @@
 import Specification from '@cars/infra/typeorm/entities/Specification';
-import { AppDataSource } from '@database/data-source';
 import { Repository } from 'typeorm';
+
+import { AppDataSource } from '@shared/infra/typeorm/data-source';
 
 import {
   ISpecificationDTO,

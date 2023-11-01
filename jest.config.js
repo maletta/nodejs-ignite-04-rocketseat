@@ -92,10 +92,8 @@ module.exports = {
       '@database/*': ['database/*'],
       '@routes/*': ['routes/*'],
       '@shared/*': ['shared/*'],
-      '@errors/*': ['errors/*'],
       '@utils/*': ['utils/*'],
       '@config/*': ['config/*'],
-      '@middleware/*': ['middleware/*'],
     },
     {
       prefix: '<rootDir>/src/',
