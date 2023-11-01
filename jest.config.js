@@ -85,19 +85,24 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  moduleNameMapper: pathsToModuleNameMapper({
-    '@src/*': ['<rootDir>/src/*'],
-    '@cars-entities/*': ['<rootDir>/src/modules/cars/entities/*'],
-    '@cars-repositories/*': ['<rootDir>/src/modules/cars/repositories/*'],
-    '@cars-services/*': ['<rootDir>/src/modules/cars/services/*'],
-    '@cars-useCases/*': ['<rootDir>/src/modules/cars/useCases/*'],
-    '@accounts/*': ['<rootDir>/src/modules/accounts/*'],
-    '@routes/*': ['<rootDir>/src/routes/*'],
-    '@shared/*': ['<rootDir>/src/shared/*'],
-    '@errors/*': ['<rootDir>/src/errors/*'],
-    '@utils/*': ['<rootDir>/src/utils/*'],
-    '@config/*': ['<rootDir>/src/config/*'],
-  }),
+  moduleNameMapper: pathsToModuleNameMapper(
+    {
+      '@src/*': ['*'],
+      '@cars-entities/*': ['modules/cars/entities/*'],
+      '@cars-repositories/*': ['modules/cars/repositories/*'],
+      '@cars-services/*': ['modules/cars/services/*'],
+      '@cars-useCases/*': ['modules/cars/useCases/*'],
+      '@accounts/*': ['modules/accounts/*'],
+      '@routes/*': ['routes/*'],
+      '@shared/*': ['shared/*'],
+      '@errors/*': ['errors/*'],
+      '@utils/*': ['utils/*'],
+      '@config/*': ['config/*'],
+    },
+    {
+      prefix: '<rootDir>/src/',
+    }
+  ),
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
