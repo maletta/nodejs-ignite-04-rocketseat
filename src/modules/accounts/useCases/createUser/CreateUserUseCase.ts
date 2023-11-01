@@ -1,8 +1,9 @@
 import { ICreateUserDTO } from '@accounts/dtos/ICreateUserDTO';
 import { IUsersRepository } from '@accounts/repositories/IUsersRepository';
-import { AppError } from '@errors/AppError';
 import { hash } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
+
+import { AppError } from '@shared/errors/AppError';
 
 @injectable()
 class CreateUserUseCase {
@@ -17,6 +18,7 @@ class CreateUserUseCase {
     const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
     if (userAlreadyExists) {
+      console.log('error detectado');
       throw new AppError('User already exists!');
     }
 

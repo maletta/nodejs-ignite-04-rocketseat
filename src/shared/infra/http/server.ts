@@ -1,13 +1,13 @@
 import 'reflect-metadata';
-import './shared/container';
+import '@shared/container';
+import 'express-async-errors'; // lib para tratar erros
+import '@database/data-source';
 
 import express from 'express';
-import 'express-async-errors'; // lib para tratar erros
 
-import './database/data-source';
+import { router } from '@shared/infra/http/routes/index';
 
 import { errorMiddleware } from './middleware/errorMiddleware';
-import { router } from './routes';
 
 const server = express();
 

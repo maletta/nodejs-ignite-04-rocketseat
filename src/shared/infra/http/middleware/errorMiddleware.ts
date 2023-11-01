@@ -1,5 +1,6 @@
-import { AppError } from '@errors/AppError';
 import { NextFunction, Request, Response } from 'express';
+
+import { AppError } from '@shared/errors/AppError';
 
 export function errorMiddleware(
   error: Error,
@@ -7,6 +8,8 @@ export function errorMiddleware(
   response: Response,
   next: NextFunction
 ): Response {
+  console.log('-----------------');
+  console.log('middleware de errors');
   if (error instanceof AppError) {
     return response.status(error.statusCode).json({
       message: error.message,

@@ -3,9 +3,10 @@ import { CreateCategoryController } from '@cars/useCases/createCategory/CreateCa
 import { ImportCategoryController } from '@cars/useCases/importCategory/ImportCategoryController';
 import { ListCatgoriesController } from '@cars/useCases/listCategories/ListCategoriesController';
 import uploadConfig from '@config/upload';
-import { ensureAuthenticated } from '@middleware/ensureAuthenticated';
 import { Router } from 'express';
 import multer from 'multer';
+
+import { ensureAuthenticated } from '@shared/infra/http/middleware/ensureAuthenticated';
 
 const categoriesRoutes = Router();
 const upload = multer(uploadConfig.upload('./tmp'));
