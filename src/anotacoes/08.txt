@@ -1,0 +1,5 @@
+Desenvolvendo Cars com TDD
+
+  - Escrever um teste que falhe
+  - Fazer o teste passar
+  - Refatorar
