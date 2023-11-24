@@ -16,7 +16,7 @@ export const AppDataSource = new DataSource({
     './src/modules/accounts/infra/typeorm/entities/*.ts',
   ],
   subscribers: [],
-  migrations: ['./src/database/migrations/*.ts'],
+  migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
 });
 
 AppDataSource.initialize()

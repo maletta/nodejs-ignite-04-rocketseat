@@ -55,11 +55,11 @@ do nosso package.json usando a versão typeorm do node_modules
 
 -- NOVO
 criando migrations nova forma: preciso passar o endereço de onde salvará
-npm run typeorm -- migration:create ./src/database/migrations/CreateCategories
+npm run typeorm -- migration:create ./src/shared/infra/typeorm/migrations/CreateCategories
 
 executando migrations e revertando migrations
-npm run typeorm -- migration:run -d ./src/database/data-source.ts 
-npm run typeorm -- migration:revert -d ./src/database/data-source.ts 
+npm run typeorm -- migration:run -d ./src/shared/infra/typeorm/data-source.ts 
+npm run typeorm -- migration:revert -d ./src/shared/infra/typeorm/data-source.ts 
 
 
 -- ANTIGO
