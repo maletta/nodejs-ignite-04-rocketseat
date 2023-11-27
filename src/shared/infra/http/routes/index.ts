@@ -1,8 +1,9 @@
 import { Router } from 'express';
 
-import { ensureAuthenticated } from '@shared/infra/http/middleware/ensureAuthenticated';
+// import { ensureAuthenticated } from '@shared/infra/http/middleware/ensureAuthenticated';
 
 import { authenticateRoutes } from './authenticate.routes';
+import { carsRoutes } from './cars.routes';
 import { categoriesRoutes } from './categories.routes';
 import { specificationsRoutes } from './specification.routes';
 import { swaggerRoutes } from './swagger.routes';
@@ -15,5 +16,6 @@ router.use(authenticateRoutes);
 router.use('/categories', categoriesRoutes);
 router.use('/specifications', specificationsRoutes);
 router.use('/users', usersRoutes);
+router.use('/cars', carsRoutes);
 
 export { router };

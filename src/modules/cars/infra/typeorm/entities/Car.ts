@@ -41,3 +41,5 @@ class Car {
   @JoinColumn({ name: 'category_id' })
   public category: Category;
 }
+
+export { Car };
