@@ -1,34 +1,51 @@
-## 💻 Projeto
+# API Solid 
 
-Projeto para fins de estudo.
+Projeto para fins de estudo dos princípios de solid.
 Caso de uso: aplicação rest para gerenciamento de aluguel de carro.
 
 Arquitetura: clean code, solid.
-Tecnologias: nodejs, typescript, docker.
+Tecnologias: nodejs, typescript, typeorm, postgres, docker.
 
-### Scripts disponíveis
+## Índice
 
-Após clonar o projeto, execute:
+- [Sobre](#sobre)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
+- [Licença](#licença)
 
-#### `npm dev`
+## Sobre
 
-O aplicativo iniciará em [http://localhost:3000](http://localhost:3000).
+O projeto **API Solid** é uma API desenvolvida em Node.js, seguindo os princípios do SOLID. Ele oferece um conjunto de funcionalidades para realizar operações relacionadas a autenticação, uploads de arquivos, entre outros recursos.
 
-#### `npm run lint:fix`
+## Tecnologias Utilizadas
 
-Para corrigir possíveis alterações do padrão do projeto.
+Aqui estão as principais tecnologias e dependências utilizadas neste projeto:
 
+- `Express`: "^4.17.1"
+- `JWT` (jsonwebtoken): "^9.0.2"
+- `TypeORM`: "^0.3.17"
+- `PostgreSQL` (pg): "^8.11.3"
+- `TypeScript`: "^4.2.2"
+- `Prettier`: "^2.2.1"
+- `ESLint`: "^7.21.0"
+- `Jest`: "^29.7.0"
+- entre outras listadas no arquivo `package.json`.
 
-## 📝 Licença
+## Instalação
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Para executar este projeto localmente, siga os passos abaixo:
 
----
+1. Clone o repositório:
 
-<p align="center">
-  Projeto com fins de estudos sobre typescript com aplicação dos conceitos de S.O.L.I.D.
-</p>
+   ```bash
+   git clone https://github.com/seu-usuario/api-solid.git
+   cd api-solid
 
+2. Inicialize os serviços necessários em um container docker:
 
+   ```bash
+   docker compose up
 
+## Licença
 
+MIT
