@@ -47,7 +47,7 @@ describe('Create Car', () => {
       license_plate: 'ABC-1234',
       fine_amount: 60,
       brand: 'Description',
-      category_id: 'category',
+      category_id: 'af4eead2-d613-4305-9283-cf493087fe6c',
     };
 
     await expect(async () => {
@@ -64,7 +64,7 @@ describe('Create Car', () => {
       license_plate: 'ABC-1234',
       fine_amount: 60,
       brand: 'Description',
-      category_id: 'category',
+      category_id: 'af4eead2-d613-4305-9283-cf493087fe6c',
     };
 
     const createCar = await createCarUseCase.execute(carData);

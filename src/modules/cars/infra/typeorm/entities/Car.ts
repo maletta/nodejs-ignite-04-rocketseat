@@ -11,6 +11,7 @@
 import {
   Column,
   CreateDateColumn,
+  Entity,
   JoinColumn,
   ManyToOne,
   PrimaryColumn,
@@ -19,6 +20,7 @@ import { v4 as uuidV4 } from 'uuid';
 
 import Category from './Category';
 
+@Entity('cars')
 class Car {
   @PrimaryColumn()
   public id: string;
@@ -30,9 +32,6 @@ class Car {
   public brand: string;
 
   @Column()
-  public category_id: string;
-
-  @Column()
   public daily_rate: number;
 
   @Column()
@@ -42,12 +41,15 @@ class Car {
   public fine_amount: number;
 
   @Column()
-  public available = true; // já é boolean e true e fora do construtor
+  public available: boolean;
 
   @Column()
   public license_plate: string;
 
-  @ManyToOne(() => Category)
+  @Column()
+  public category_id: string;
+
+  @ManyToOne(() => Category) // muitos carros para uma categoria
   @JoinColumn({ name: 'category_id' })
   public category: Category;
 
@@ -57,6 +59,7 @@ class Car {
   constructor() {
     if (!this.id) {
       this.id = uuidV4();
+      this.available = true;
     }
   }
 }

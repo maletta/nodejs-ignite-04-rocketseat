@@ -32,9 +32,11 @@ class CarsRepository implements ICarsRepository {
       fine_amount,
       license_plate,
       name,
-    });
+    }); // cria a referência da entidade Car
 
-    const createdCar = await this.repository.save(car);
+    console.log('*(********* new car', car);
+
+    const createdCar = await this.repository.save(car); // salva a entidade car
 
     return createdCar;
   }

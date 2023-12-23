@@ -11,19 +11,19 @@ import { container } from 'tsyringe';
 // criando uma referência a instância singleton que será injetada
 container.registerSingleton<ICategoriesRepository>(
   'CategoriesRepository',
-  CategoriesRepository
+  CategoriesRepository,
 );
 
 // criando uma referência a instância singleton que será injetada
 container.registerSingleton<ISpecificationRepository>(
   'SpecificationRepository',
-  SpecificationRepository
+  SpecificationRepository,
 );
 
 // criando uma referência a instância singleton que será injetada
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
-  UserRepository
+  UserRepository,
 );
 
 // criando uma referência a instância singleton que será injetada

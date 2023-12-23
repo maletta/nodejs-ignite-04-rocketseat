@@ -27,7 +27,7 @@ export class CreateSpecification1697215872602 implements MigrationInterface {
             default: 'now()',
           },
         ],
-      })
+      }),
     );
   }
 

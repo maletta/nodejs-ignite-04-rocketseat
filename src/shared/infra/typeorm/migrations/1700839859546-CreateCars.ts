@@ -63,7 +63,7 @@ export class CreateCars1700839859546 implements MigrationInterface {
             onUpdate: 'SET NULL',
           },
         ],
-      })
+      }),
     );
   }
 

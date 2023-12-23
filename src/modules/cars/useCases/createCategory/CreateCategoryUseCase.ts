@@ -21,13 +21,12 @@ class CreateCategoryUseCase {
 
   constructor(
     @inject('CategoriesRepository') // injeta o singleton especificado
-    private categoriesRepository: ICategoriesRepository
+    private categoriesRepository: ICategoriesRepository,
   ) {}
 
   public async execute({ name, description }: IRequest): Promise<void> {
-    const categoryAlreadyExists = await this.categoriesRepository.findByName(
-      name
-    );
+    const categoryAlreadyExists =
+      await this.categoriesRepository.findByName(name);
 
     if (categoryAlreadyExists) {
       throw new AppError('Category already exists!');

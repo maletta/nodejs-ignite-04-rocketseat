@@ -1,4 +1,3 @@
-// import createCategoryController from '@cars-useCases/createCategory';
 import { CreateCarController } from '@cars/useCases/createCar/CreateCarController';
 import { Router } from 'express';
 
