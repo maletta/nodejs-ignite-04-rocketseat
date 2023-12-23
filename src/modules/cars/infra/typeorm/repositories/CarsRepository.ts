@@ -13,7 +13,7 @@ class CarsRepository implements ICarsRepository {
     this.repository = AppDataSource.getRepository(Car);
   }
 
-  public async create(data: ICreateCarDTO): Promise<void> {
+  public async create(data: ICreateCarDTO): Promise<Car> {
     const {
       brand,
       category_id,
@@ -34,7 +34,19 @@ class CarsRepository implements ICarsRepository {
       name,
     });
 
-    await this.repository.save(car);
+    const createdCar = await this.repository.save(car);
+
+    return createdCar;
+  }
+
+  public async findByLicensePlate(license_plate: string): Promise<Car[]> {
+    const foundCars = await this.repository.find({
+      where: {
+        license_plate,
+      },
+    });
+
+    return foundCars;
   }
 }
 

@@ -1,5 +1,8 @@
+import { Car } from '@cars/infra/typeorm/entities/Car';
 import { ICarsRepository } from '@cars/repositories/ICarsRepository';
 import { inject, injectable } from 'tsyringe';
+
+import { AppError } from '@shared/errors/AppError';
 
 interface IRequest {
   name: string;
@@ -25,8 +28,16 @@ class CreateCarUseCase {
     description,
     fine_amount,
     license_plate,
-  }: IRequest): Promise<void> {
-    await this.carsRepository.create({
+  }: IRequest): Promise<Car> {
+    const carAlreadyExists = await this.carsRepository.findByLicensePlate(
+      license_plate
+    );
+
+    if (carAlreadyExists.length > 0) {
+      throw new AppError('Car already exists');
+    }
+
+    const createdCar = await this.carsRepository.create({
       brand,
       category_id,
       daily_rate,
@@ -35,6 +46,8 @@ class CreateCarUseCase {
       license_plate,
       name,
     });
+
+    return createdCar;
   }
 }
 

@@ -6,7 +6,7 @@ import { ICarsRepository } from '../ICarsRepository';
 class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
 
-  public async create(data: ICreateCarDTO): Promise<void> {
+  public async create(data: ICreateCarDTO): Promise<Car> {
     const {
       brand,
       category_id,
@@ -29,6 +29,15 @@ class CarsRepositoryInMemory implements ICarsRepository {
     });
 
     this.cars.push(car);
+
+    return car;
+  }
+
+  public async findByLicensePlate(license_plate: string): Promise<Car[]> {
+    const foundCars = this.cars.filter(
+      (car) => car.license_plate === license_plate
+    );
+    return foundCars;
   }
 }
 

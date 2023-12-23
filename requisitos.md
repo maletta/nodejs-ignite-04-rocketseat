@@ -10,6 +10,13 @@ Regras pros trás dos RF (não é possíve cadastrar categoria com nome existent
 
 -------------------------------------------------------
 
+# Alteração de carro
+**RF**
+Deve ser possível alterar dados de um carro cadastrado
+**RNF**
+**RN**
+Não deve ser possível alterar a placa de um carro já cadastrado.
+
 # Cadastro de carro
 
 **RF**
@@ -20,9 +27,8 @@ Deve ser possível listar tidas as categorias.
 
 **RN**
 Não deve ser possível cadastrar um carro com uma placa já existente.
-Não deve ser possível alterar a placa de um carro já cadastrado.
 O carro deve ser cadastrado, por padrão disponibilidade como verdadeiro.
-O usuário responsável pelo cadastro deve ser um usuário administrador.
+**(controller?) O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 # Listagem de carros
 

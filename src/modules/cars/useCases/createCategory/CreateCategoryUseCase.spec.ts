@@ -33,11 +33,12 @@ describe('Create Categoy', () => {
   });
 
   it('should bot be able to create a new category with name exists', async () => {
+    const category = {
+      name: 'Category Test',
+      description: 'Category description Test',
+    };
+
     await expect(async () => {
-      const category = {
-        name: 'Category Test',
-        description: 'Category description Test',
-      };
       await createCategoryUseCase.execute({
         name: category.name,
         description: category.description,

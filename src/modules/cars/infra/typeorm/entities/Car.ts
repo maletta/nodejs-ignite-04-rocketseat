@@ -8,13 +8,20 @@
     license_plate,
 */
 
-import { Column, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
+} from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
 
 import Category from './Category';
 
 class Car {
   @PrimaryColumn()
-  public id?: string;
+  public id: string;
 
   @Column()
   public name: string;
@@ -35,11 +42,23 @@ class Car {
   public fine_amount: number;
 
   @Column()
+  public available = true; // já é boolean e true e fora do construtor
+
+  @Column()
   public license_plate: string;
 
   @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
   public category: Category;
+
+  @CreateDateColumn()
+  public created_at: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
+    }
+  }
 }
 
 export { Car };
