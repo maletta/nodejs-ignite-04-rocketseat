@@ -18,12 +18,3 @@ export const AppDataSource = new DataSource({
   subscribers: [],
   migrations: ['./src/shared/infra/typeorm/migrations/*.ts'],
 });
-
-AppDataSource.initialize()
-  .then(() => {
-    console.log('Banco de dados iniciado com sucesso');
-  })
-  .catch((error) => {
-    console.log('Erro ao iniciar o banco de dados');
-    console.log(error);
-  });
