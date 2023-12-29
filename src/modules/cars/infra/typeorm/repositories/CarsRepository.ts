@@ -34,7 +34,7 @@ class CarsRepository implements ICarsRepository {
       name,
     }); // cria a referência da entidade Car
 
-    console.log('*(********* new car', car);
+    console.log('********* new car', car);
 
     const createdCar = await this.repository.save(car); // salva a entidade car
 
@@ -76,6 +76,16 @@ class CarsRepository implements ICarsRepository {
     const cars = await carsQuery.getMany();
 
     return cars;
+  }
+
+  public async findById(id: string): Promise<Car> {
+    const foundCar = await this.repository.findOne({
+      where: {
+        id,
+      },
+    });
+
+    return foundCar;
   }
 }
 
