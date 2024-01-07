@@ -1,0 +1,72 @@
+Chapter V
+  Carros
+    01
+      Finalizando aluguel, editando carro alugado
+
+      CarsRepository
+        updateAvailable
+          this.repository.createQueryBuilder()
+          .update()
+          .set({available})
+          .where("id = :id")
+          .setParameters({id})
+          .execute()
+
+  02
+  
+    iniciando devolução de carro
+      DevolutionRentalController
+      DevolutionRentalUseCase
+  
+  03
+
+    criando regras de negócio para definir o total a ser pago que varia de acordo com a quantidade de dias
+    que o carro ficou alugado e com o atraso
+
+  04 
+    criando DevolurionRentalUseCase (request, response)
+      request [ params (id), user (o middleware adiciona) ]
+
+    criando rota
+      rentals post devolution/:id  (id do aluguel)
+
+  05
+    cria uma propriedade virtual 'car' em rental que é uma relação manyToOne, vários aluguéis podem pertencer a um carro
+
+  06
+    RentalRepository
+     findByUser(user_id)
+      const rentals = await this.repository.find({
+        where: {user_id},
+        relations: ["car"]
+      })
+      return rentals
+
+  07
+    especificar na documentação swagger quais rotas precisam ser autenticadas, definir a forma de autenticação (JWT)
+
+    Swagger:
+      components => securitySchemes => bearerAuth => {type: http, scheme: bearer, bearerFormat: JWT }
+      rota categories
+        paths => "/categories" => post => security: {bearerAuth: []}
+
+      rota sessions
+        post => tags: ["Session"] summary: "authentication user" description: "authentication user", 
+        requestBody: content {
+              application/json {
+                schema { type: object, properties {email string password string} }}
+                responses: {200 {description "Success"} 400 {description "Mensagem de erro que está no 400"} }
+              }
+
+  08
+    replicando autenticação para outras rotas
+      utilizanado: security: {bearerAuth: []}
+
+  09
+    criando documentação swagger de envio de imagem
+      rota "/cars/images/{id}"
+        post => 
+          tags [Cars] summary "Upload images" description "Upload images" security {bearerAyth: []}
+          parameters [ {name "id"  in "path"  description "Car id" } required true schema {type string}] // onde receber os id
+          requestBody {content "multipart/form-data" {schema {type "object properties {images { type "array" items {type "string format "binary" }}}} }} // recebe as imagens
+          responses: {201 {description "Created"} }

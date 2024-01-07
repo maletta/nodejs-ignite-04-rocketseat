@@ -42,3 +42,65 @@ Chapter IV
             expect rejects toBeInstanceOf AppError
           should not be able to create a new rentar if there is another open to the same car
             expect rejects tobeInstanceOf AppError
+      
+      04 - 
+        Criando provider DateProvider, configurando uma interface para manipulação de datas
+        Criando uma implementação para o DateProvider, essa implementação usa o DayJs
+      05 
+        Manipulando datas com o DayJs, configurando utc no DayJs
+      06 
+        Criando controller do create rental
+        Criando implementação de RentalsRepository com typeorm
+          findOpenRentalByCard(car_id): Rental
+          findOpenRentalByUser(user_id): Rental
+          create({car_id, user_id, expected_return_date}) : Rental
+        
+        Criando em container a injeção de dependência para o DateProvider
+          container.registerSingleton<IDateProvider>("DayJsDateProvider", DayJsDateProvider); 
+
+        Revertendo a migração de criação da tabela rentals
+          adicionando isNullable para propriedades que podem ser vazias (end_date, total)
+
+  Testes de Integração - Chapter IV
+    01 -
+    adicionando lib supertest e seus tipos para a aplicação para realização de testes integrados
+
+    exportando app para ser reaproveitado, assim criando outro arquivo que importa app e executa app.listen()
+    e podemos reaproveitar o app sem iniciar o servidor sempre
+
+    02
+    criando arquivo de teste para category controller spec, teste de Integração
+
+    03
+    definindo variável de ambiente para script yarn test NODE.ENV =  test
+      quando for ambiente de test
+        se conectará com o banco de nome test
+    
+    no category controller spec
+      before all
+        criar conexão
+          const connection = await AppDataSource().initialize()
+        executar migrations
+          await connection.runMigrations();
+        executar query de criar usuário admin com senha
+          const id = uuid()
+          const password = await hash("admin",8)
+          connection.query("insert into users() values ()")
+
+      after all
+        dropTable 
+        close connection
+
+    should be able to create category
+      supertest com post em "/session" para autenticar, receber o token dentro da resposta
+        supertest.post("/session").send({email, password})
+      supertest para criar categoria com post "/category" definindo o header authentication como Bearer ${token}
+        supertest.post("category").send({data}).set({Authorization: `Bearer ${token}`})
+
+    04
+      category controller spec
+        criar categoria repetida com erro, expect response.status toBe 400
+
+      list categories controller spec
+
+
