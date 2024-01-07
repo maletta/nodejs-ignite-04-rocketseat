@@ -73,6 +73,8 @@ Chapter V
 
   10
     corrigir testes após mudanças e melhorá-los
+
+    expect reject não estava funcionando porque não estavamos esperando (await) o expect
     
     configurando JEST, que por padrão executa todos os test de uma vez paralelamento, mas ao informar a flag runInBand ele executa um teste após o outro 
       --runInBand
