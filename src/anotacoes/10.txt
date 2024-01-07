@@ -70,3 +70,28 @@ Chapter V
           parameters [ {name "id"  in "path"  description "Car id" } required true schema {type string}] // onde receber os id
           requestBody {content "multipart/form-data" {schema {type "object properties {images { type "array" items {type "string format "binary" }}}} }} // recebe as imagens
           responses: {201 {description "Created"} }
+
+  10
+    corrigir testes após mudanças e melhorá-los
+    
+    configurando JEST, que por padrão executa todos os test de uma vez paralelamento, mas ao informar a flag runInBand ele executa um teste após o outro 
+      --runInBand
+        isso acerta alguns problemas com paralelismo, por exemplo quando adiciona coisas na tabela
+          package.json {"test": "NODE_ENV=test jest --runInBand"}
+    configurando JEST, para dizer se existem tests abertos mesmo após a finalização do script
+      --detectOpenHandles
+           package.json {"test": "NODE_ENV=test jest --runInBand" --detectOpenHandles}
+    
+    alterando expect.rejects.toBeInstanceOf, remover o que não é validado dentro do expect, deixar só a função que será validada.
+    refatorar em toda a aplicação.
+
+
+      await expect(
+        createCategoryUseCase.execute({
+          name: "categoria",
+          description: "descricao"
+        })
+      ).toEqual(new AppError("Category already exists!"))
+    
+         deixa validação para AppError mais específico, porque cada useCase pode gerar mais de 1 AppError, porque mais de 1 
+        validação gera um AppError
