@@ -1,3 +1,6 @@
+SOLID
+-----------------------------------------------------------------------------------------------
+
 repositories
 
 é a camada responsável por fazer toda a manipulação de dados da nossa aplicação, select, insert

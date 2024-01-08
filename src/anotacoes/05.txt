@@ -1,0 +1,37 @@
+TSYRINGE e injeção de dependências
+
+---------------------------------------------------------------------------------------
+Atualmente a injeção de dependência é manual e criamos instâncias pra cada dependência
+
+Instância de controller => instância de use case => instância de repository
+
+---------------------------------------------------------------------------------------
+Tsyringe permite utilizar Annotations e nos poupa de criar as instâncias.
+
+Ele disponibiliza um objeto global chamado container.
+
+--------------------------------------------------------------------------------------
+Esse trecho diz que sempre que for solicitado uma injeção de nome CategoriesRepository 
+o tstringe irá fornecer um singleton de CategoriesRepository:
+
+container.registerSingleton<ICategoriesRepository>(
+  'CategoriesRepository',
+  CategoriesRepository
+);
+
+// Então esse trecho faz a injeção de categoria para o método 
+@inject("CategoriesRepository") // porém da erro
+constructor(private categoriesRepository: ICategoriesRepository) {}
+
+// Então eu alterei para 
+constructor( @inject("CategoriesRepository") private categoriesRepository: ICategoriesRepository) {}
+
+// Então torna a classe injetável
+@injectable()
+class CreateCategoryUseCase {}
+--------------------------------------------------------------------------------------
+
+Feito as injeções, não é preciso mais criar as instância de useCase e de repository ao instanciar as
+classes Controllers e elas voltaram a funcionar como middlewares
+
+-------------------------------------------------------------------------------------

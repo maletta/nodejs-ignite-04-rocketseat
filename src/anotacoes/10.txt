@@ -1,0 +1,103 @@
+Chapter V
+  Carros
+    01
+      Finalizando aluguel, editando carro alugado
+
+      CarsRepository
+        updateAvailable
+          this.repository.createQueryBuilder()
+          .update()
+          .set({available})
+          .where("id = :id")
+          .setParameters({id})
+          .execute()
+
+  02
+  
+    iniciando devolução de carro
+      DevolutionRentalController
+      DevolutionRentalUseCase
+  
+  03
+
+    criando regras de negócio para definir o total a ser pago que varia de acordo com a quantidade de dias
+    que o carro ficou alugado e com o atraso
+
+  04 
+    criando DevolurionRentalUseCase (request, response)
+      request [ params (id), user (o middleware adiciona) ]
+
+    criando rota
+      rentals post devolution/:id  (id do aluguel)
+
+  05
+    cria uma propriedade virtual 'car' em rental que é uma relação manyToOne, vários aluguéis podem pertencer a um carro
+
+  06
+    RentalRepository
+     findByUser(user_id)
+      const rentals = await this.repository.find({
+        where: {user_id},
+        relations: ["car"]
+      })
+      return rentals
+
+  07
+    especificar na documentação swagger quais rotas precisam ser autenticadas, definir a forma de autenticação (JWT)
+
+    Swagger:
+      components => securitySchemes => bearerAuth => {type: http, scheme: bearer, bearerFormat: JWT }
+      rota categories
+        paths => "/categories" => post => security: {bearerAuth: []}
+
+      rota sessions
+        post => tags: ["Session"] summary: "authentication user" description: "authentication user", 
+        requestBody: content {
+              application/json {
+                schema { type: object, properties {email string password string} }}
+                responses: {200 {description "Success"} 400 {description "Mensagem de erro que está no 400"} }
+              }
+
+  08
+    replicando autenticação para outras rotas
+      utilizanado: security: {bearerAuth: []}
+
+  09
+    criando documentação swagger de envio de imagem
+      rota "/cars/images/{id}"
+        post => 
+          tags [Cars] summary "Upload images" description "Upload images" security {bearerAyth: []}
+          parameters [ {name "id"  in "path"  description "Car id" } required true schema {type string}] // onde receber os id
+          requestBody {content "multipart/form-data" {schema {type "object properties {images { type "array" items {type "string format "binary" }}}} }} // recebe as imagens
+          responses: {201 {description "Created"} }
+
+  10
+    corrigir testes após mudanças e melhorá-los
+
+    expect reject não estava funcionando porque não estavamos esperando (await) o expect
+    
+    configurando JEST, que por padrão executa todos os test de uma vez paralelamento, mas ao informar a flag runInBand ele executa um teste após o outro 
+      --runInBand
+        isso acerta alguns problemas com paralelismo, por exemplo quando adiciona coisas na tabela
+          package.json {"test": "NODE_ENV=test jest --runInBand"}
+    configurando JEST, para dizer se existem tests abertos mesmo após a finalização do script
+      --detectOpenHandles
+           package.json {"test": "NODE_ENV=test jest --runInBand" --detectOpenHandles}
+    
+    alterando expect.rejects.toBeInstanceOf, remover o que não é validado dentro do expect, deixar só a função que será validada.
+    refatorar em toda a aplicação.
+
+
+      await expect(
+        createCategoryUseCase.execute({
+          name: "categoria",
+          description: "descricao"
+        })
+      ).toEqual(new AppError("Category already exists!"))
+    
+         deixa validação para AppError mais específico, porque cada useCase pode gerar mais de 1 AppError, porque mais de 1 
+        validação gera um AppError
+
+  Autenticação
+    01
+      Entendendo conceitos de refresh_token

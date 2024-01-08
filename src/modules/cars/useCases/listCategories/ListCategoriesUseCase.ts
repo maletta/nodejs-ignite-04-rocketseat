@@ -1,6 +1,8 @@
-import Category from '@cars-models/Category';
-import { ICategoriesRepository } from '@cars-repositories/ICategoriesRepository';
+import Category from '@cars/infra/typeorm/entities/Category';
+import { ICategoriesRepository } from '@cars/repositories/ICategoriesRepository';
+import { inject, injectable } from 'tsyringe';
 
+@injectable()
 class ListCategoriesUseCase {
   /**
    *
@@ -10,8 +12,11 @@ class ListCategoriesUseCase {
    * ListCategoriesUseCase dont need to know wich implementation it is because any implementation
    * will have the same methods
    */
-  constructor(private categoriesRepository: ICategoriesRepository) {}
-  public execute(): Category[] {
+  constructor(
+    @inject('CategoriesRepository')
+    private categoriesRepository: ICategoriesRepository
+  ) {}
+  public async execute(): Promise<Category[]> {
     return this.categoriesRepository.list();
   }
 }

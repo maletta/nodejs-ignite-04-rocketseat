@@ -1,0 +1,10 @@
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "cSpell.words": [
+    "dtos",
+    "tsyringe",
+    "typeorm"
+  ],
+}

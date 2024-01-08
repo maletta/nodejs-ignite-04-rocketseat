@@ -1,3 +1,6 @@
+CONFIGUGRAÇÕES
+------------------------------------------------------------------------------------------------------
+
 "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
 
 transpile-only: só validade alguns erros em tempo de Building, deixando a transpilação em dev mais rápida
@@ -44,6 +47,8 @@ exemplo: /authentication é um recurso, /users, /category são outros recursos
 
 --------------------------------------
 configurando o path de pastas (path-mapping) no typescript:
+tsconfig-paths é utilizado para que o ts-node-dev identifiquei os caminhos definidos no tsconfig.json
+
 yarn add tsconfig-paths -D
 
 adicionar comando no modo dev: -r tsconfig-paths/register
@@ -51,7 +56,7 @@ adicionar comando no modo dev: -r tsconfig-paths/register
 "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn -r tsconfig-paths/register src/server.ts",
 
 depois adicionar paths no tssconfig:
-"paths": { "@cars-models/*": ["./src/modules/cars/models/*"], }
+"paths": { "@cars-entities/*": ["./src/modules/cars/entities/*"], }
 
 // https://blog.rocketseat.com.br/path-mapping-typescript/
 

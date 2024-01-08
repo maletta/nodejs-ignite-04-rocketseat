@@ -1,0 +1,75 @@
+Jest
+
+  **Configurando**
+
+  yarn add jest @types/jest ts-jest
+
+  jest --init
+
+  jest.config.ts {
+
+    bail: true,
+    preset: "ts-jest",
+    moduleNameMapper: pathsToModuleNameMapper({
+    '@src/*': ['<rootDir>/src/*'],
+    '@cars/*': ['<rootDir>/src/modules/cars/*'],
+    '@accounts/*': ['<rootDir>/src/modules/accounts/*'],
+    '@routes/*': ['<rootDir>/src/routes/*'],
+    '@shared/*': ['<rootDir>/src/shared/*'],
+    '@errors/*': ['<rootDir>/src/errors/*'],
+    '@utils/*': ['<rootDir>/src/utils/*'],
+  }),
+  }
+
+
+  moduleNameMapper: mapeando os diretórios da aplicação para que o jest entenda as importações
+
+  *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+------------------------------------------------
+1- Testes Unitários
+
+  Testa pedaços da aplicação, testa funcionalidade, testa a regra de negócios, testa casos de uso,
+testa casos de sucesso e casos de erro
+
+
+
+-------------------------------------------------
+2- Testes de Integração
+
+  Testa o conjunto da aplicação, desde a entrada nas rotas até o retorno, conexão com banco de dados,
+serviços externos.
+
+rotas => controllers => useCases => repository
+<= repository <= useCases <= controllers <= routes
+
+-------------------------------------------------
+TDD - Test Driven Development
+
+Não é uma forma de teste igual as 2 formas acima, é um método de desenvolvimento.
+Começar nossa aplicação pelos Testes
+
+-------------------------------------------------
+
+InMemoryRepository
+
+  Criação de classes que implementam interfaces de repositórios,
+  mas sem conexão com base de dados, recursos em memória.
+
+----------------------------------------------------
+
+Arquitetura do sistema
+
+Em todos os nossos módulos nós criamos uma pasta de infra que armazena tudo que não 
+é regra de negócio do sistema, por exemplo as implementações de typeorm, conexões com typeorm,
+implementações do express (rotas)
+
+Tudo que for da camada externa (framework de banco, framework de servidor http, biblioteca envio de email,
+implementação de entidades)
+-----------------------------------------------------
+
+REQUISITOS DA APLICAÇÃO
+
+requisitos funcionais:
+
+requisitos não funcionais:

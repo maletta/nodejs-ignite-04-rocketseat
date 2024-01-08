@@ -1,0 +1,76 @@
+TYPEORM e DOCKER
+
+-- createConnection cria a conexão baseado no arquivo ormconfig.json, porém está depreciado
+
+-- nova forma de realizar conexão é com DataSource
+
+-- volumes docker - criado no service database_ignite
+    volumes:
+      - pgdata:/data/postgres
+  
+  obs: volumes docker pode ser tanto local ou como se fosse de um hd externo, da seguinte forma
+  cria um volume local. Se for como hd é preciso apontá-lo
+    volumes: 
+      pgdata: 
+        driver: local
+  
+  dessa forma é criado um volume que continua persistido mesmo se a stack ou o container for removido,
+o volume fica armazenado em algum lugar da máquina host.
+
+-- volumes docker - criado no service app 
+volumes:
+      - .:/usr/app
+  obs: isso é diferente de um volume local, o nome disso é  bind mount. Que é usado para fazer um link 
+principalmente de arquivos que podem ser alterados pelo container e pela máquina host, de modo a facilitar 
+o desenvolvimento, para que não seja necessário recriar o container devido a alterações nesses arquivos.
+
+-- quando trabalhamos com vários serviços do docker compose, cada serviço está em um ip diferente
+para verificar isso:
+
+  docker inspect database_ignite | grep IPAddress
+ ou
+  docker exec database_ignite cat /etc/hosts
+
+ então é preciso configurar no docker-compose.yml a rede de comunicação entre os serviços
+
+a propriedade "network_mode: host" do docker-compose.yml então define um mode de rede para os dois serviços
+
+
+------- MIGRATIONS ------------
+
+- Útil para conseguir um controle melhor da criação e da alteração da nossa database, de modo
+que o banco de dados executado no docker pelo time fique sempre atualizado conforme os arquivos das MIGRATIONS
+
+- Toda a equipe trabalhará com a mesma versão do banco de dados.
+
+- migrations configuradas em ormconfig.json
+  (depreciado, não configura mais local das migrations)
+
+
+
+
+---- SCRIPT PARA MIGRATIONS ---------
+é possível instalar  "npm i -g typeorm" de modo global para executar scripts, ou podemos criar um script dentro
+do nosso package.json usando a versão typeorm do node_modules
+
+-- NOVO
+criando migrations nova forma: preciso passar o endereço de onde salvará
+npm run typeorm -- migration:create ./src/shared/infra/typeorm/migrations/CreateCategories
+
+executando migrations e revertando migrations
+npm run typeorm -- migration:run -d ./src/shared/infra/typeorm/data-source.ts 
+npm run typeorm -- migration:revert -d ./src/shared/infra/typeorm/data-source.ts 
+
+
+-- ANTIGO
+criando migrations antiga forma: preciso passar o endereço de onde salvará
+npm run typeorm -- migration:create -n CreateCategories
+
+executando as migrations antiga forma:
+mapeia o diretório das migrations na propriedade migrations de ormconfig.json
+npm run typeorm migration:run
+
+------------------------------------
+
+npm run typeorm -- migration:run -d ./src/database/data-source.ts 
+npm run typeorm -- migration:generate ./src/database/migrations/Create -d ./src/database/data-source.ts

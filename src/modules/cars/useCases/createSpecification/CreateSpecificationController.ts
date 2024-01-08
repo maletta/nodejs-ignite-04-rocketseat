@@ -1,14 +1,20 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
 import { CreateSpecificationUseCase } from './CreateSpecificationUseCase';
 
 class CreateSpecificationController {
-  constructor(private createSpecificationUseCase: CreateSpecificationUseCase) {}
+  // não precisa mais do construtor pois o CreateSpecificationUseCase será injetado
+  // constructor(private createSpecificationUseCase: CreateSpecificationUseCase) {}
 
-  public handle(request: Request, response: Response): Response {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const { name, description } = request.body;
-    this.createSpecificationUseCase.execute({ name, description });
-    return response.status(201).json();
+    const createSpecificationUseCase = container.resolve(
+      CreateSpecificationUseCase
+    );
+    await createSpecificationUseCase.execute({ name, description });
+
+    return response.status(201).send();
   }
 }
 

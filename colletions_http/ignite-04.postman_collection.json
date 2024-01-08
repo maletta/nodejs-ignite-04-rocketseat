@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "2c6e3c93-69c5-42de-b9df-7fe4fa6c7412",
+		"name": "ignite-04",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7475185",
+		"_collection_link": ""
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"câmbio automático 4\",\r\n\t\"description\": \"carro com câmbio automático\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "list category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"descrição da categoria 2\",\r\n    \"name\": \"nome da categoria 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/categories"
+					},
+					"response": []
+				},
+				{
+					"name": "import category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/mauricio.malleta/Documents/_ztemporario/categorias_ignite04.csv"
+								}
+							]
+						},
+						"url": "{{api_url}}/categories/import"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "specifications",
+			"item": [
+				{
+					"name": "create specification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"especificação  1\",\r\n\t\"description\": \"especificação do carro 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/specifications"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjE1NSwiaWF0IjoxNjk1MTQ1MTc2fQ.9ka6ARzt7aZEkmTOZDO2rvrmpoUrMiAan4zxZLHad7s"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mauricio\",\r\n    \"username\": \"mauricio\",\r\n    \"email\" : \"mauricio@email.com\",\r\n    \"password\": \"123\",\r\n    \"driver_license\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/users"
+					},
+					"response": []
+				},
+				{
+					"name": "avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/mauricio.malleta/Pictures/classics.jfif"
+								}
+							]
+						},
+						"url": "{{api_url}}/users/avatar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authenticate",
+			"item": [
+				{
+					"name": "sessions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjE1NSwiaWF0IjoxNjk1MTQ1MTc2fQ.9ka6ARzt7aZEkmTOZDO2rvrmpoUrMiAan4zxZLHad7s"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"mauricio@email.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/sessions"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"item": [
+				{
+					"name": "test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"objeto-qualquer-1\",\r\n    \"time\": 8000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/testando"
+					},
+					"response": []
+				},
+				{
+					"name": "test-2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"objeto-qualquer-2\",\r\n    \"time\": 2000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/testando"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cars",
+			"item": [
+				{
+					"name": "create car",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"brand\": \"Tesla\",\r\n  \"category_id\": \"af4eead2-d613-4305-9283-cf493087fe6b\",\r\n  \"daily_rate\": 150,\r\n  \"description\": \"Tesla Model S, um carro elétrico de luxo com autonomia de longo alcance\",\r\n  \"fine_amount\": 200,\r\n  \"license_plate\": \"XYZ-9876\",\r\n  \"name\": \"Model S\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api_url}}/cars"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{token}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
