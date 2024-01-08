@@ -1,0 +1,6 @@
+export default {
+  secret_token: 'secret',
+  expires_in_token: '15m',
+  secret_refresh_token: 'secret_refresh_token',
+  expires_in_refresh_token: '30d',
+};

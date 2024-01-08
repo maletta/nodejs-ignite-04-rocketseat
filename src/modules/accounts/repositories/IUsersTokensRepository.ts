@@ -3,7 +3,7 @@ import { UserTokens } from '@accounts/infra/typeorm/entities/UserTokens';
 
 interface IUsersTokensRepository {
   create({
-    expires_date,
+    expires_in,
     refresh_token,
     user_id,
   }: ICreateUserTokenDTO): Promise<UserTokens>;

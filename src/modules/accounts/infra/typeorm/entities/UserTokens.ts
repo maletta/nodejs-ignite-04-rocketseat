@@ -26,7 +26,7 @@ class UserTokens {
   refresh_token: string;
 
   @Column()
-  expires_date: Date;
+  expires_in: Date;
 
   @CreateDateColumn()
   created_at: Date;
