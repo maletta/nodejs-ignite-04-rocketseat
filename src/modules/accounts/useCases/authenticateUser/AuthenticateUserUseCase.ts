@@ -20,9 +20,11 @@ interface IResponse {
 
 @injectable()
 class AuthenticateUserUseCase {
-  constructor(
-    @inject('UsersRepository') private usersRepository: IUsersRepository
-  ) {}
+  private usersRepository: IUsersRepository;
+  constructor(@inject('UsersRepository') usersRepository: IUsersRepository) {
+    this.usersRepository = usersRepository;
+  }
+
   public async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email);
 

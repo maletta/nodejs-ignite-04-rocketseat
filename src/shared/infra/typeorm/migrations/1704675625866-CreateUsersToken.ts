@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateUsers1697315982835 implements MigrationInterface {
-  private readonly tableName = 'users';
+export class CreateUsersToken1704675625866 implements MigrationInterface {
+  private readonly tableName = 'users_tokens';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
@@ -11,37 +11,34 @@ export class CreateUsers1697315982835 implements MigrationInterface {
           {
             name: 'id',
             type: 'uuid',
+            isPrimary: true,
           },
           {
-            name: 'name',
+            name: 'refresh_token',
             type: 'varchar',
           },
           {
-            name: 'username',
-            type: 'varchar',
-            isUnique: true,
+            name: 'user_id',
+            type: 'uuid',
           },
           {
-            name: 'password',
-            type: 'varchar',
-          },
-          {
-            name: 'email',
-            type: 'varchar',
-          },
-          {
-            name: 'driver_license',
-            type: 'varchar',
-          },
-          {
-            name: 'isAdmin',
-            type: 'boolean',
-            default: false,
+            name: 'expires_in',
+            type: 'timestamp',
           },
           {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
+          },
+        ],
+        foreignKeys: [
+          {
+            name: 'FKUserToken',
+            referencedTableName: 'users',
+            referencedColumnNames: ['id'],
+            columnNames: ['user_id'],
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
           },
         ],
       }),

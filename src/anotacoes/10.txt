@@ -97,3 +97,7 @@ Chapter V
     
          deixa validação para AppError mais específico, porque cada useCase pode gerar mais de 1 AppError, porque mais de 1 
         validação gera um AppError
+
+  Autenticação
+    01
+      Entendendo conceitos de refresh_token

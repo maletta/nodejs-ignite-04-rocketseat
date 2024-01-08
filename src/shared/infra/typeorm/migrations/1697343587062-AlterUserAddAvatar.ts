@@ -10,7 +10,7 @@ export class AlterUserAddAvatar1697343587062 implements MigrationInterface {
         name: this.columnName,
         type: 'varchar',
         isNullable: true,
-      })
+      }),
     );
   }
 
